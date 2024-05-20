@@ -25,7 +25,7 @@ export default function App() {
     }, [connected, connecting, disconnecting])
     return (
         <main className="">
-            {/* <WalletMultiButton /> */}
+            <WalletMultiButton />
         </main>
     );
 }
