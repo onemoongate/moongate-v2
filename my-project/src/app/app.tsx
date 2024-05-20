@@ -3,38 +3,29 @@ import Image from "next/image";
 import {
     WalletModalProvider,
     WalletDisconnectButton,
-    WalletMultiButton
+    WalletMultiButton,
+    useWalletModal,
+    WalletModal,
+
 } from '@solana/wallet-adapter-react-ui';
 import { ConnectionProvider, WalletProvider, useWallet } from '@solana/wallet-adapter-react';
 
 import { MoongateWalletAdapter } from "@moongate/moongate-adapter"
-import { useMemo } from "react";
-
+import { useEffect, useMemo } from "react";
 export default function App() {
-    const wallets = useMemo(
-        () => [
-            /**
-             * Wallets that implement either of these standards will be available automatically.
-             *
-             *   - Solana Mobile Stack Mobile Wallet Adapter Protocol
-             *     (https://github.com/solana-mobile/mobile-wallet-adapter)
-             *   - Solana Wallet Standard
-             *     (https://github.com/anza-xyz/wallet-standard)
-             *
-             * If you wish to support a wallet that supports neither of those standards,
-             * instantiate its legacy wallet adapter here. Common legacy adapters can be found
-             * in the npm package `@solana/wallet-adapter-wallets`.
-             */
-            new MoongateWalletAdapter(),
-        ],
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        []
-    );
-    const walletToSign = useWallet().select(wallets[0].name);
-    useWallet().connect();
+    // call   useWalletModal().setVisible(true) when page renders to show the wallet modal, this is a hook so it can only be called in a functional component
+    const { connected, connecting, disconnecting } = useWallet();
+    const { setVisible } = useWalletModal();
+    useEffect(() => {
+        if (connected || connecting) {
+            setVisible(false)
+        } else {
+            setVisible(true)
+        }
+    }, [connected, connecting, disconnecting])
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-
+        <main className="">
+            {/* <WalletMultiButton /> */}
         </main>
     );
 }

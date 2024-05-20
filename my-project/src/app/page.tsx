@@ -3,13 +3,15 @@ import Image from "next/image";
 import {
   WalletModalProvider,
   WalletDisconnectButton,
-  WalletMultiButton
+  WalletMultiButton,
+  useWalletModal,
 } from '@solana/wallet-adapter-react-ui';
 import App from "./app";
 import { ConnectionProvider, WalletProvider, useWallet } from '@solana/wallet-adapter-react';
 
 import { MoongateWalletAdapter } from "@moongate/moongate-adapter"
 import { useMemo } from "react";
+require('@solana/wallet-adapter-react-ui/styles.css');
 
 export default function Home() {
   const wallets = useMemo(
@@ -27,15 +29,21 @@ export default function Home() {
        * in the npm package `@solana/wallet-adapter-wallets`.
        */
       new MoongateWalletAdapter(),
+      new MoongateWalletAdapter({ authMode: "Google" }),
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
+
   return (
+
     <WalletProvider wallets={wallets} autoConnect>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <App />
-      </main>
+      <WalletModalProvider>
+        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+          <App />
+        </main>
+      </WalletModalProvider >
+
     </WalletProvider>
   );
 }
