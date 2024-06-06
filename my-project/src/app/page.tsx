@@ -8,11 +8,11 @@ import {
 } from '@solana/wallet-adapter-react-ui';
 import App from "./app";
 import { ConnectionProvider, WalletProvider, useWallet } from '@solana/wallet-adapter-react';
-
-import { MoongateWalletAdapter } from "@moongate/moongate-adapter"
+import { registerMoonGateWallet } from "@moongate/moongate-adapter";
 import { useMemo } from "react";
 require('@solana/wallet-adapter-react-ui/styles.css');
-
+registerMoonGateWallet({ authMode: "Google" });
+registerMoonGateWallet({ authMode: "Ethereum" });
 export default function Home() {
   const wallets = useMemo(
     () => [
@@ -28,8 +28,7 @@ export default function Home() {
        * instantiate its legacy wallet adapter here. Common legacy adapters can be found
        * in the npm package `@solana/wallet-adapter-wallets`.
        */
-      new MoongateWalletAdapter(),
-      new MoongateWalletAdapter({ authMode: "Google" }),
+      /*    new MoongateWalletAdapter({ authMode: "Google" }), */
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []

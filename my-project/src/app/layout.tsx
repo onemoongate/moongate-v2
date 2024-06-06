@@ -5,8 +5,30 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "MoonGate V2",
-  description: "The fastest way to use Solana from Ethereum",
+  title: "The fastest way to trade Solana memecoins | MoonGate",
+  description: "Trade Solana memecoins like $Jenner, $Mother, $Bonk and $Wif using your Ethereum wallet or with one click google sign in to Solana.",
+  keywords: ["Solana memecoins", "ethereum wif", "ethereum bonk", "Ethereum jenner", "jenner memecoin"],
+  openGraph: {
+    images: [
+      {
+        url: "/moongate-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "moongate logo showing the best way to trade memecoins on solana, the image shows pictures of famous Solana memecoins wrapped around the moongate logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      {
+        url: "/moongate-banner.png",
+        width: 1200,
+        height: 600,
+        alt: "moongate logo showing the best way to trade memecoins on solana, the image shows pictures of famous Solana memecoins wrapped around the moongate logo",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
