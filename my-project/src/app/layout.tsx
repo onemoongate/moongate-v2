@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Head from "next/head";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -38,7 +39,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <Head>
+        <body className={inter.className}>{children}</body>
+        <meta property="og:title" content={metadata?.openGraph?.title?.toString()} />
+        <meta property="og:description" content={metadata?.openGraph?.description} />
+        <meta property="og:url" content={metadata?.openGraph?.url?.toString()} />
+        <meta property="og:image" content={"/moongate-banner.png"} />
+        <meta name="twitter:image" content={"/moongate-banner.png"} />
+
+
+      </Head>
     </html>
   );
 }
