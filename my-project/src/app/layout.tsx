@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: "/moongate-banner.png",
+        url: "https://web.moongate.one/moongate-banner.png",
         width: 1200,
         height: 630,
         alt: "moongate logo showing the best way to trade memecoins on solana, the image shows pictures of famous Solana memecoins wrapped around the moongate logo",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: [
       {
-        url: "/moongate-banner.png",
+        url: "https://web.moongate.one/moongate-banner.png",
         width: 1200,
         height: 600,
         alt: "moongate logo showing the best way to trade memecoins on solana, the image shows pictures of famous Solana memecoins wrapped around the moongate logo",
@@ -44,8 +44,8 @@ export default function RootLayout({
         <meta property="og:title" content={metadata?.openGraph?.title?.toString()} />
         <meta property="og:description" content={metadata?.openGraph?.description} />
         <meta property="og:url" content={metadata?.openGraph?.url?.toString()} />
-        <meta property="og:image" content={"/moongate-banner.png"} />
-        <meta name="twitter:image" content={"/moongate-banner.png"} />
+        <meta property="og:image" content={"https://web.moongate.one/moongate-banner.png"} />
+        <meta name="twitter:image" content={"https://web.moongate.one/moongate-banner.png"} />
 
 
       </Head>
