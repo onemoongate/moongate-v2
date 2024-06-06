@@ -10,7 +10,6 @@ import {
 } from '@solana/wallet-adapter-react-ui';
 import { ConnectionProvider, WalletProvider, useWallet } from '@solana/wallet-adapter-react';
 
-import { MoongateWalletAdapter } from "@moongate/moongate-adapter"
 import { useEffect, useMemo } from "react";
 export default function App() {
     // call   useWalletModal().setVisible(true) when page renders to show the wallet modal, this is a hook so it can only be called in a functional component
