@@ -23,8 +23,9 @@ export default function App() {
         }
     }, [connected, connecting, disconnecting])
     return (
-        <main className="">
+        <main className="flex justify-center py-10">
             <WalletMultiButton />
+
         </main>
     );
 }

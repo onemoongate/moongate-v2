@@ -9,7 +9,7 @@ import {
 import App from "./app";
 import { ConnectionProvider, WalletProvider, useWallet } from '@solana/wallet-adapter-react';
 import { registerMoonGateWallet } from "@moongate/moongate-adapter";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 require('@solana/wallet-adapter-react-ui/styles.css');
 registerMoonGateWallet({ authMode: "Google" });
 registerMoonGateWallet({ authMode: "Ethereum" });
@@ -33,13 +33,15 @@ export default function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
-
   return (
 
     <WalletProvider wallets={wallets} autoConnect>
       <WalletModalProvider>
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+
+        <main className="">
+
           <App />
+          <iframe id="myiframe" src="https://coinranking.com/coins/solana-meme" sandbox="allow-scripts allow-same-origin" className="w-full min-h-screen px-4 sm:px-20" />
         </main>
       </WalletModalProvider >
 
