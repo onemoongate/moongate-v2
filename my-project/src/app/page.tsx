@@ -13,6 +13,8 @@ import { useEffect, useMemo } from "react";
 require('@solana/wallet-adapter-react-ui/styles.css');
 registerMoonGateWallet({ authMode: "Google" });
 registerMoonGateWallet({ authMode: "Ethereum" });
+registerMoonGateWallet({ authMode: "Apple" });
+registerMoonGateWallet({ authMode: "Twitter" });
 export default function Home() {
   const wallets = useMemo(
     () => [
@@ -41,8 +43,8 @@ export default function Home() {
         <main className="">
 
           <App />
-          <iframe id="myiframe" src="https://coinranking.com/coins/solana-meme" sandbox="allow-scripts allow-same-origin" className="w-full min-h-screen px-4 sm:px-20" />
-        </main>
+          {/*           <iframe id="myiframe" src="https://coinranking.com/coins/solana-meme" sandbox="allow-scripts allow-same-origin" className="w-full min-h-screen px-4 sm:px-20" />
+ */}        </main>
       </WalletModalProvider >
 
     </WalletProvider>

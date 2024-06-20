@@ -24,28 +24,28 @@ export default function App() {
         }
     }, [connected, connecting, disconnecting])
 
-    useEffect(() => {
-        const myIframe = document.getElementById("myiframe");
-
-        if (myIframe) {
-
-            if (toggle) {
-                myIframe.style.display = "none"
-            }
-            else {
-                myIframe.style.display = "block"
-            }
-        }
-    }, [toggle])
+    /*   useEffect(() => {
+          const myIframe = document.getElementById("myiframe");
+  
+          if (myIframe) {
+  
+              if (toggle) {
+                  myIframe.style.display = "none"
+              }
+              else {
+                  myIframe.style.display = "block"
+              }
+          }
+      }, [toggle]) */
     return (
         <main className="flex justify-center py-10 space-x-8">
             <WalletMultiButton />
-            <button className="bg-blue-800 px-6 py-2 rounded-md font-semibold" onClick={() => {
+            {/*      <button className="bg-blue-800 px-6 py-2 rounded-md font-semibold" onClick={() => {
                 setToggle(!toggle)
 
 
 
-            }}>{toggle ? "Show Memecoins" : "Hide Memecoins"}</button>
+            }}>{toggle ? "Show Memecoins" : "Hide Memecoins"}</button> */}
 
 
         </main>
