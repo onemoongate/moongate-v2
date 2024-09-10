@@ -8,7 +8,7 @@ import {
 } from '@solana/wallet-adapter-react-ui';
 import App from "./app";
 import { ConnectionProvider, WalletProvider, useWallet } from '@solana/wallet-adapter-react';
-import { registerMoonGateWallet } from "@moongate/moongate-adapter";
+import { registerMoonGateWallet } from "@zerotimedrift/moongate-adapter";
 import { useEffect, useMemo } from "react";
 require('@solana/wallet-adapter-react-ui/styles.css');
 registerMoonGateWallet({ authMode: "Google" });
