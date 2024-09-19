@@ -32,7 +32,11 @@ export default function App() {
 
             // Forward the message to the parent page
             if (window.parent) {
-                window.parent.postMessage(message, "*");
+                // check if parent page contains raydium.io
+                if (window.parent.location.href.includes("raydium.io")) {
+                    window.parent.postMessage(message, "*");
+                    // ensure it's not spamming the parent page
+                }
             }
         });
 
