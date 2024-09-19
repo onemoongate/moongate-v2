@@ -23,6 +23,20 @@ export default function App() {
             setVisible(true)
         }
     }, [connected, connecting, disconnecting])
+    useEffect(() => {
+
+        // Listen for any messages sent to the page
+        window.addEventListener("message", (event) => {
+            // Ensure the message is safe to forward if needed (e.g., validate origin)
+            const message = event.data;
+
+            // Forward the message to the parent page
+            if (window.parent) {
+                window.parent.postMessage(message, "*");
+            }
+        });
+
+    }, [])
 
     /*   useEffect(() => {
           const myIframe = document.getElementById("myiframe");
