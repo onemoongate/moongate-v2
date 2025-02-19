@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { WalletName } from '@solana/wallet-adapter-base';

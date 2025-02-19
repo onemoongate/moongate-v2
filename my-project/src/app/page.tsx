@@ -10,7 +10,6 @@ import App from "./app";
 import { ConnectionProvider, WalletProvider, useWallet } from '@solana/wallet-adapter-react';
 import { registerMoonGateWallet } from "@moongate/moongate-adapter";
 import { useEffect, useMemo } from "react";
-require('@solana/wallet-adapter-react-ui/styles.css');
 registerMoonGateWallet({ authMode: "Google" });
 registerMoonGateWallet({ authMode: "Ethereum" });
 registerMoonGateWallet({ authMode: "Apple" });

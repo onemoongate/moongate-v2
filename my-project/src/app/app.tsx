@@ -368,6 +368,32 @@ export default function App() {
         }, [connected, connecting, disconnecting, setVisible]); */
 
     useEffect(() => {
+        // Create and append styles after component mounts (client-side only)
+        const style = document.createElement('style');
+        style.textContent = `
+              @keyframes fade-in {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+              }
+              @keyframes gradient-xy {
+                0%, 100% { transform: translate(0, 0); }
+                25% { transform: translate(10px, 10px); }
+                50% { transform: translate(0, 20px); }
+                75% { transform: translate(-10px, 10px); }
+              }
+              .animate-fade-in { animation: fade-in 1s forwards ease-out; }
+              .animate-gradient-xy { animation: gradient-xy 15s infinite linear; }
+            `;
+        document.head.appendChild(style);
+
+        // Cleanup function to remove the style when component unmounts
+        return () => {
+            if (style.parentNode) {
+                style.parentNode.removeChild(style);
+            }
+        };
+    }, []);
+    useEffect(() => {
         const handleMessage = (event: MessageEvent) => {
             const message = event.data;
             if (window.parent && window.parent.location.href.includes("raydium.io")) {
@@ -450,19 +476,3 @@ export default function App() {
     );
 }
 
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes fade-in {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes gradient-xy {
-    0%, 100% { transform: translate(0, 0); }
-    25% { transform: translate(10px, 10px); }
-    50% { transform: translate(0, 20px); }
-    75% { transform: translate(-10px, 10px); }
-  }
-  .animate-fade-in { animation: fade-in 1s forwards ease-out; }
-  .animate-gradient-xy { animation: gradient-xy 15s infinite linear; }
-`;
-document.head.appendChild(style);
