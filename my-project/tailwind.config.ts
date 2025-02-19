@@ -8,6 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Lexend", "sans-serif"],
+      },
+      fontWeight: {
+        light: "300",
+        regular: "400",
+        bold: "500",
+        extrabold: "600",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -18,3 +27,5 @@ const config: Config = {
   plugins: [],
 };
 export default config;
+
+
