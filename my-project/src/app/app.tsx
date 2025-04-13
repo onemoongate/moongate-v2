@@ -429,7 +429,7 @@ export default function App() {
 
                     <AnimatedText delay="200">
                         <p className="text-2xl mb-8 text-gray-300 max-w-2xl font-bold">
-                            Trade memecoins in just a single click
+                            All of Solana in one click.
                         </p>
                     </AnimatedText>
                     <AnimatedText delay="200">

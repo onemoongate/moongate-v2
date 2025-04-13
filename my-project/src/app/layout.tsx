@@ -6,8 +6,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "The fastest way to trade Solana memecoins | MoonGate",
-  description: "Trade Solana memecoins like $Jenner, $Mother, $Bonk and $Wif using your Ethereum wallet or with one click google sign in to Solana.",
+  title: "The fastest way to trade on Solana | MoonGate",
+  description: "Use Solana in just one click using MoonGate",
   keywords: ["Solana memecoins", "ethereum wif", "ethereum bonk", "Ethereum jenner", "jenner memecoin"],
   openGraph: {
     images: [
